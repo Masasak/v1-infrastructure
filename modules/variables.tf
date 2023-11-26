@@ -17,8 +17,3 @@ variable "public_subnets" {
 variable "private_subnets" {
   type    = list(string)
 }
-
-variable "public_subnet_tags_per_az" {
-  type        = map(map(string))
-  default     = {}
-}
