@@ -6,10 +6,10 @@ locals {
 
 data "aws_caller_identity" "current" {}
 
-module "eksv2" {
-  source                 = "./modules/eks-cluster-v2"
+module "eks" {
+  source = "./modules/eks"
 
-  name_prefix     = local.name_prefix_v2
+  name_prefix     = local.name_prefix
   cluster_version = local.cluster_version
   instance_type   = local.node_type
   capacity_type   = local.capacity_type
@@ -25,12 +25,6 @@ module "eksv2" {
     {
       userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/admin"
       username = "admin"
-    }
-  ]
-  auth_roles = [
-    {
-      rolearn  = module.karpenter.irsa_arn
-      username = "system:node:{{EC2PrivateDNSName}}"
     }
   ]
 }

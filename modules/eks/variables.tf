@@ -17,10 +17,6 @@ variable "nodegroup_max_size" {
 }
 variable "nodegroup_desired_size" {
 }
-variable "bootstrap_extra_args" {
-}
-variable "pre_bootstrap_user_data" {
-}
 
 variable "auth_users" {
   type = list(object({
