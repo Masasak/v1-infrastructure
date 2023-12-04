@@ -43,6 +43,7 @@ module "eks" {
     [{
       userarn  = data.aws_caller_identity.current.arn
       username = local.current_username
+      groups   = ["system:admin"]
     }],
     var.auth_users
   )
