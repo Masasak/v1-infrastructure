@@ -20,8 +20,9 @@ module "eks" {
     instance_types = [local.instance_type]
     capacity_type  = local.capacity_type
   }
+
   eks_managed_node_groups = {
-    default_managed_node_group = {
+    SnapVibe_node = {
       instance_types         = [local.instance_type]
       create_security_group  = false
       create_launch_template = false
