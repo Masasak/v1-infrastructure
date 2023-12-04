@@ -5,21 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.23"
     }
-    kubernetes = {
-      source  = "hasicorp/kubernetes"
-      version = "~> 2.21"
-    }
   }
 }
 
 provider "aws" {
   region = "ap-northeast-2"
   alias  = "seoul"
-}
-
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-  token                  = data.aws_eks_cluster_auth.cluster.token
 }
