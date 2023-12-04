@@ -25,6 +25,7 @@ module "eks" {
     {
       userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/admin"
       username = "admin"
+      groups = ["system:admin"]
     }
   ]
 }
