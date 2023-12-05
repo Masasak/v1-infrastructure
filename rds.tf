@@ -19,6 +19,15 @@ resource "aws_security_group" "rds_sg" {
   }
 }
 
+resource "aws_db_subnet_group" "SnapVibe_subnet_group" {
+  name       = "Snapvibe"
+  subnet_ids = [module.vpc.private_subnet_ids]
+
+  tags = {
+    Name = "My DB subnet group"
+  }
+}
+
 resource "aws_db_instance" "SnapVibe-rds" {
   identifier             = "snapvibe-rds"
   allocated_storage      = local.db_storage_size
