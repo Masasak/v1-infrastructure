@@ -20,7 +20,7 @@ resource "aws_security_group" "rds_sg" {
 }
 
 resource "aws_db_subnet_group" "SnapVibe_subnet_group" {
-  name       = "Snapvibe-subnet-group"
+  name       = "snapvibe-subnet-group"
   subnet_ids = [module.vpc.private_subnet_ids]
 }
 
