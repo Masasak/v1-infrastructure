@@ -27,6 +27,6 @@ resource "aws_db_instance" "SnapVibe-rds" {
   availability_zone      = "${data.aws_region.current.name}a"
   username               = local.db_username
   password               = var.rds_root_password
-  vpc_security_group_ids = [aws_security_group.db_sg.id]
+  vpc_security_group_ids = [aws_security_group.rds_sg.id]
   publicly_accessible    = local.db_public_accessible
 }
