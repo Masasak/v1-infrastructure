@@ -35,6 +35,7 @@ resource "aws_db_instance" "SnapVibe-rds" {
   password                = var.rds_root_password
   vpc_security_group_ids  = [aws_security_group.rds_sg.id]
   publicly_accessible     = local.db_public_accessible
+  apply_immediately       = true
   backup_retention_period = 7
 }
 
