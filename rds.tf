@@ -20,7 +20,7 @@ resource "aws_security_group" "rds_sg" {
 }
 
 resource "aws_db_instance" "SnapVibe-rds" {
-  identifier             = "${local.name_prefix}-rds"
+  identifier             = "snapvibe-rds"
   allocated_storage      = local.db_storage_size
   engine                 = local.db_engine
   instance_class         = local.db_type
