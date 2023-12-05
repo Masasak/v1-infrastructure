@@ -36,3 +36,8 @@ resource "aws_db_instance" "SnapVibe-rds" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   publicly_accessible    = local.db_public_accessible
 }
+
+resource "aws_db_instance" "SnapVibe-rds-read-replica" {
+  instance_class        = local.db_type
+  replicate_source_db   = aws_db_instance.SnapVibe-rds.identifier
+}
