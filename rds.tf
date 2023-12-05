@@ -25,19 +25,21 @@ resource "aws_db_subnet_group" "SnapVibe_subnet_group" {
 }
 
 resource "aws_db_instance" "SnapVibe-rds" {
-  identifier             = "snapvibe-rds"
-  allocated_storage      = local.db_storage_size
-  engine                 = local.db_engine
-  instance_class         = local.db_type
-  db_subnet_group_name   = aws_db_subnet_group.SnapVibe_subnet_group.name
-  availability_zone      = "${data.aws_region.current.name}a"
-  username               = local.db_username
-  password               = var.rds_root_password
-  vpc_security_group_ids = [aws_security_group.rds_sg.id]
-  publicly_accessible    = local.db_public_accessible
+  identifier              = "snapvibe-rds"
+  allocated_storage       = local.db_storage_size
+  engine                  = local.db_engine
+  instance_class          = local.db_type
+  db_subnet_group_name    = aws_db_subnet_group.SnapVibe_subnet_group.name
+  availability_zone       = "${data.aws_region.current.name}a"
+  username                = local.db_username
+  password                = var.rds_root_password
+  vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  publicly_accessible     = local.db_public_accessible
+  backup_retention_period = 7
 }
 
 resource "aws_db_instance" "SnapVibe-rds-read-replica" {
-  instance_class        = local.db_type
-  replicate_source_db   = aws_db_instance.SnapVibe-rds.identifier
+  instance_class          = local.db_type
+  replicate_source_db     = aws_db_instance.SnapVibe-rds.identifier
+  backup_retention_period = 7
 }
