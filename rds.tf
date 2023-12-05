@@ -40,6 +40,7 @@ resource "aws_db_instance" "SnapVibe-rds" {
 }
 
 resource "aws_db_instance" "SnapVibe-rds-read-replica" {
+  identifier              = "snapvibe-rds-replica"
   instance_class          = local.db_type
   replicate_source_db     = aws_db_instance.SnapVibe-rds.identifier
   backup_retention_period = 7
