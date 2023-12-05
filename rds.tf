@@ -20,12 +20,8 @@ resource "aws_security_group" "rds_sg" {
 }
 
 resource "aws_db_subnet_group" "SnapVibe_subnet_group" {
-  name       = "Snapvibe"
+  name       = "Snapvibe-subnet-group"
   subnet_ids = [module.vpc.private_subnet_ids]
-
-  tags = {
-    Name = "My DB subnet group"
-  }
 }
 
 resource "aws_db_instance" "SnapVibe-rds" {
@@ -33,6 +29,7 @@ resource "aws_db_instance" "SnapVibe-rds" {
   allocated_storage      = local.db_storage_size
   engine                 = local.db_engine
   instance_class         = local.db_type
+  db_subnet_group_name   = aws_db_subnet_group.SnapVibe_subnet_group.name
   availability_zone      = "${data.aws_region.current.name}a"
   username               = local.db_username
   password               = var.rds_root_password
