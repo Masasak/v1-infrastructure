@@ -13,7 +13,7 @@ locals {
   argocd-version   = "0.1.0"
   argocd-namespace = "argocd"
 
-  aws-loadbalancer-controller-name      = "aws-load-balancer-controller"
+  aws-loadbalancer-controller-name      = "aws-loadbalancer-controller"
   aws-loadbalancer-controller-version   = "0.1.0"
   aws-loadbalancer-controller-namespace = "kube-system"
 }
