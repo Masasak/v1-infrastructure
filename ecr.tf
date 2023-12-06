@@ -24,7 +24,7 @@ module "ecr" {
   source = "./modules/ecr"
 
   for_each = local.ecr_name
-  name     = "${local.ecr_name_prefix}-${ecr_version1_prefix}-${each.value}"
+  name     = "${local.ecr_name_prefix}-${local.ecr_version1_prefix}-${each.value}"
 }
 
 output "ecr_url" {
