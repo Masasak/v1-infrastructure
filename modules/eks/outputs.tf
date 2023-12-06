@@ -17,3 +17,7 @@ output "cluster_ca_certificate" {
 output "cluster_auth_token" {
   value = data.aws_eks_cluster_auth.cluster.token
 }
+
+output "oidc_provider_arn" {
+  value = module.eks.oidc_provider_arn
+}
