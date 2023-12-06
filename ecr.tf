@@ -1,13 +1,13 @@
 locals {
   ecr_names = [
-    "Image-Service",
-    "Post-Service",
-    "Comment-Service",
-    "User-Service",
-    "Report-Service",
-    "Attachment-Service",
-    "Chat-Service",
-    "Auth-Service"
+    "image-service",
+    "post-service",
+    "comment-service",
+    "user-service",
+    "report-service",
+    "attachment-service",
+    "chat-service",
+    "auth-service"
   ]
 }
 
