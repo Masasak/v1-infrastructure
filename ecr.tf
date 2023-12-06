@@ -1,5 +1,5 @@
 locals {
-  ecr_name_prefix = "snapvibe"
+  ecr_name_prefix     = "snapvibe"
   ecr_version1_prefix = "v1"
   ecr_names = [
     "image-service",

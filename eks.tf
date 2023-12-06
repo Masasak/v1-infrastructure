@@ -14,8 +14,8 @@ module "eks" {
   instance_type   = local.node_type
   capacity_type   = local.capacity_type
 
-  vpc_id          = module.vpc.vpc_id
-  public_subnets  = module.vpc.public_subnet_ids
+  vpc_id                 = module.vpc.vpc_id
+  public_subnets         = module.vpc.public_subnet_ids
   nodegroup_min_size     = 1
   nodegroup_max_size     = 3
   nodegroup_desired_size = 2
@@ -25,7 +25,7 @@ module "eks" {
     {
       userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/admin"
       username = "admin"
-      groups = ["system:admin"]
+      groups   = ["system:admin"]
     }
   ]
 }
