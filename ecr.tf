@@ -1,5 +1,6 @@
 locals {
   ecr_name_prefix = "snapvibe"
+  ecr_version1_prefix = "v1"
   ecr_names = [
     "image-service",
     "post-service",
@@ -8,7 +9,8 @@ locals {
     "report-service",
     "attachment-service",
     "chat-service",
-    "auth-service"
+    "auth-service",
+    "gateway"
   ]
 }
 
@@ -22,7 +24,7 @@ module "ecr" {
   source = "./modules/ecr"
 
   for_each = local.ecr_name
-  name     = "${local.ecr_name_prefix}-${each.value}"
+  name     = "${local.ecr_name_prefix}-${ecr_version1_prefix}-${each.value}"
 }
 
 output "ecr_url" {
