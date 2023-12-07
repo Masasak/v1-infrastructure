@@ -4,7 +4,6 @@ module "vpc" {
 
   name = "${var.name_prefix}-vpc"
   cidr = var.vpc_cidr
-  ipv6_cidr = var.vpc_ipv6_cidr
   azs  = var.azs
 
   public_subnets  = var.public_subnets
@@ -31,7 +30,4 @@ module "vpc" {
   }
   
   map_public_ip_on_launch = true
-  enable_ipv6 = true
-  public_subnet_enable_dns64 = false
-  private_subnet_enable_dns64 = false
 }

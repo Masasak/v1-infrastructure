@@ -2,7 +2,6 @@ module "vpc" {
   source = "./modules/vpc"
 
   vpc_cidr        = local.vpc_cidr
-  vpc_ipv6_cidr   = local.vpc_ipv6_cidr
   azs             = local.azs
   private_subnets = local.private_subnets
   public_subnets  = local.public_subnets
