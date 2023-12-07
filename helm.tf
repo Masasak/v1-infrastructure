@@ -40,11 +40,11 @@ module "aws-loadbalancer-controller" {
   chart_version = local.aws-loadbalancer-controller-version
 }
 
-# module "ingress" {
-#   source        = "./modules/helm"
-#   name          = local.ingress-name
-#   namespace     = local.ingress-namespace
-#   repository    = local.snapvibe-helm-repository
-#   chart         = local.ingress-name
-#   chart_version = local.ingress-version
-# }
+module "ingress" {
+  source        = "./modules/helm"
+  name          = local.ingress-name
+  namespace     = local.ingress-namespace
+  repository    = local.snapvibe-helm-repository
+  chart         = local.ingress-name
+  chart_version = local.ingress-version
+}
