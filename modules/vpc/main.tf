@@ -26,7 +26,7 @@ module "vpc" {
   }
 
   public_subnet_tags = {
-    for tag_name, tag_value in var.private_subnet_tags : tag_name => tag_value
+    for tag_name, tag_value in var.public_subnet_tags : tag_name => tag_value
   }
   
   map_public_ip_on_launch = true
