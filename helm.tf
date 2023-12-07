@@ -13,9 +13,9 @@ locals {
   argocd-version   = "0.1.0"
   argocd-namespace = "argocd"
 
-  aws-loadbalancer-controller-name      = "aws-loadbalancer-controller"
-  aws-loadbalancer-controller-version   = "0.1.1"
-  aws-loadbalancer-controller-namespace = "kube-system"
+  aws-load-balancer-controller-name      = "aws-load-balancer-controller"
+  aws-load-balancer-controller-version   = "0.1.2"
+  aws-load-balancer-controller-namespace = "kube-system"
 
   ingress-name      = "snapvibe-ingress"
   ingress-version   = "0.1.2"
@@ -31,13 +31,13 @@ module "argocd" {
   chart_version = local.argocd-version
 }
 
-module "aws-loadbalancer-controller" {
+module "aws-load-balancer-controller" {
   source        = "./modules/helm"
-  name          = local.aws-loadbalancer-controller-name
-  namespace     = local.aws-loadbalancer-controller-namespace
+  name          = local.aws-load-balancer-controller-name
+  namespace     = local.aws-load-balancer-controller-namespace
   repository    = local.snapvibe-helm-repository
-  chart         = local.aws-loadbalancer-controller-name
-  chart_version = local.aws-loadbalancer-controller-version
+  chart         = local.aws-load-balancer-controller-name
+  chart_version = local.aws-load-balancer-controller-version
 }
 
 module "ingress" {
