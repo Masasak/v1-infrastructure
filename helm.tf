@@ -14,11 +14,11 @@ locals {
   argocd-namespace = "argocd"
 
   aws-load-balancer-controller-name      = "aws-load-balancer-controller"
-  aws-load-balancer-controller-version   = "0.1.3"
+  aws-load-balancer-controller-version   = "0.1.4"
   aws-load-balancer-controller-namespace = "kube-system"
 
   ingress-name      = "snapvibe-ingress"
-  ingress-version   = "0.1.6"
+  ingress-version   = "0.1.7"
   ingress-namespace = "default"
 }
 
