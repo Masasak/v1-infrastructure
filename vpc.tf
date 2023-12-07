@@ -8,10 +8,12 @@ module "vpc" {
   name_prefix     = local.name_prefix
 
   public_subnet_tags = {
-    "kubernetes.io/role/elb" = "1"
+    "kubernetes.io/role/elb" = "1",
+    "kubernetes.io/cluster/SnapVibe-cluster" = "owned"
   }
 
   private_subnet_tags = {
-    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/role/internal-elb" = "1",
+    "kubernetes.io/cluster/SnapVibe-cluster" = "owned"
   }
 }
