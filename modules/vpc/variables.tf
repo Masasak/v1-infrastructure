@@ -6,6 +6,10 @@ variable "vpc_cidr" {
   type = string
 }
 
+variable "vpc_ipv6_cidr" {
+  type = string
+}
+
 variable "azs" {
   type    = list(string)
 }

@@ -18,7 +18,7 @@ locals {
   aws-load-balancer-controller-namespace = "kube-system"
 
   ingress-name      = "snapvibe-ingress"
-  ingress-version   = "0.1.4"
+  ingress-version   = "0.1.5"
   ingress-namespace = "default"
 }
 
