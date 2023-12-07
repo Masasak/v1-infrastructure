@@ -17,3 +17,11 @@ variable "public_subnets" {
 variable "private_subnets" {
   type    = list(string)
 }
+
+variable "private_subnet_tags" {
+  type = map(string)
+}
+
+variable "public_subnet_tags" {
+  type = map(string)
+}

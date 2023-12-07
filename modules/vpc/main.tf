@@ -20,6 +20,14 @@ module "vpc" {
   igw_tags = {
     Name = "${var.name_prefix}-igw"
   }
+
+  private_subnet_tags = {
+    for tag_name, tag_value in var.private_subnet_tags : tag_name => tag_value
+  }
+
+  public_subnet_tags = {
+    for tag_name, tag_value in var.private_subnet_tags : tag_name => tag_value
+  }
   
   map_public_ip_on_launch = true
 }

@@ -6,4 +6,12 @@ module "vpc" {
   private_subnets = local.private_subnets
   public_subnets  = local.public_subnets
   name_prefix     = local.name_prefix
+
+  public_subnet_tags = {
+    "kubernetes.io/role/elb" = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/role/internal-elb" = "1"
+  }
 }
