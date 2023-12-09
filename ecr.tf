@@ -10,7 +10,7 @@ locals {
     "attachment-service",
     "chat-service",
     "auth-service",
-    "gateway"
+    "gateway-service"
   ]
 }
 
