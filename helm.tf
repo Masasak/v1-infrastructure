@@ -22,7 +22,7 @@ locals {
   snapvibe-application-namespace = "argocd"
 
   ingress-name      = "ingress"
-  ingress-version   = "0.1.1"
+  ingress-version   = "0.1.2"
   ingress-namespace = "argocd"
 }
 
