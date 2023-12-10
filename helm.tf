@@ -18,8 +18,12 @@ locals {
   aws-load-balancer-controller-namespace = "kube-system"
 
   snapvibe-application-name      = "snapvibe-application"
-  snapvibe-application-version   = "0.1.2"
+  snapvibe-application-version   = "0.1.3"
   snapvibe-application-namespace = "argocd"
+
+  ingress-name      = "ingress"
+  ingress-version   = "0.1.0"
+  ingress-namespace = "argocd"
 }
 
 module "argocd" {
@@ -47,4 +51,13 @@ module "snapvibe-application" {
   repository    = local.snapvibe-helm-repository
   chart         = local.snapvibe-application-name
   chart_version = local.snapvibe-application-version
+}
+
+module "ingress" {
+  source        = "./modules/helm"
+  name          = local.ingress-name
+  namespace     = local.ingress-namespace
+  repository    = local.snapvibe-helm-repository
+  chart         = local.ingress-name
+  chart_version = local.ingress-version
 }
