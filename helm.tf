@@ -10,7 +10,7 @@ locals {
   snapvibe-helm-repository = "https://masasak.github.io/v1-kube-resource"
 
   argocd-name      = "argocd"
-  argocd-version   = "0.1.0"
+  argocd-version   = "0.1.1"
   argocd-namespace = "argocd"
 
   aws-load-balancer-controller-name      = "aws-load-balancer-controller"
