@@ -18,7 +18,7 @@ locals {
   aws-load-balancer-controller-namespace = "kube-system"
 
   snapvibe-application-name      = "snapvibe-application"
-  snapvibe-application-version   = "0.1.3"
+  snapvibe-application-version   = "0.1.4"
   snapvibe-application-namespace = "argocd"
 
   ingress-name      = "ingress"
