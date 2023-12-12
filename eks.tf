@@ -1,6 +1,6 @@
 locals {
   cluster_version = "1.28"
-  node_type       = "t3.medium"
+  node_type       = "t3.small"
   capacity_type   = "ON_DEMAND"
 }
 
