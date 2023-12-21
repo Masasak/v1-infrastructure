@@ -10,6 +10,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Set Terraform Cloud Token
+        run: |
+          echo "TF_TOKEN_app_terraform_io=${{ secrets.TF_TOKEN }}" >> $GITHUB_ENV
+
       # Set up AWS credentials (using the aws-actions/configure-aws-credentials action)
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
