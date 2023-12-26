@@ -22,6 +22,8 @@ locals {
 
 module "ecr" {
   source = "./modules/ecr"
+  
+  # force delete default = true
 
   for_each = local.ecr_name
   name     = "${local.ecr_name_prefix}-${local.ecr_version1_prefix}-${each.value}"
