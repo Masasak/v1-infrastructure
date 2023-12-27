@@ -24,6 +24,10 @@ locals {
   ingress-name      = "ingress"
   ingress-version   = "0.1.2"
   ingress-namespace = "argocd"
+
+  istio-name      = "istio"
+  istio-version   = "0.1.0"
+  istio-namespace = "istio-system"
 }
 
 module "argocd" {
@@ -35,14 +39,14 @@ module "argocd" {
   chart_version = local.argocd-version
 }
 
-module "aws-load-balancer-controller" {
-  source        = "./modules/helm"
-  name          = local.aws-load-balancer-controller-name
-  namespace     = local.aws-load-balancer-controller-namespace
-  repository    = local.snapvibe-helm-repository
-  chart         = local.aws-load-balancer-controller-name
-  chart_version = local.aws-load-balancer-controller-version
-}
+# module "aws-load-balancer-controller" {
+#   source        = "./modules/helm"
+#   name          = local.aws-load-balancer-controller-name
+#   namespace     = local.aws-load-balancer-controller-namespace
+#   repository    = local.snapvibe-helm-repository
+#   chart         = local.aws-load-balancer-controller-name
+#   chart_version = local.aws-load-balancer-controller-version
+# }
 
 module "snapvibe-application" {
   source        = "./modules/helm"
@@ -53,11 +57,20 @@ module "snapvibe-application" {
   chart_version = local.snapvibe-application-version
 }
 
-module "ingress" {
+# module "ingress" {
+#   source        = "./modules/helm"
+#   name          = local.ingress-name
+#   namespace     = local.ingress-namespace
+#   repository    = local.snapvibe-helm-repository
+#   chart         = local.ingress-name
+#   chart_version = local.ingress-version
+# }
+
+module "istio" {
   source        = "./modules/helm"
-  name          = local.ingress-name
-  namespace     = local.ingress-namespace
+  name          = local.istio-name
+  namespace     = local.istio-namespace
   repository    = local.snapvibe-helm-repository
-  chart         = local.ingress-name
-  chart_version = local.ingress-version
+  chart         = local.istio-name
+  chart_version = local.istio-version
 }

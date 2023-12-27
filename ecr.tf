@@ -22,7 +22,7 @@ locals {
 
 module "ecr" {
   source = "./modules/ecr"
-  
+
   # force delete default = true
 
   for_each = local.ecr_name
