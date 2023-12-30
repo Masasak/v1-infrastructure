@@ -13,14 +13,13 @@ module "load_balancer_controller_irsa_role" {
 resource "aws_iam_policy" "eks_nlb_create_policy" {
   name = "eks_nlb_create_policy"
 
-  policy = jsondecode(
-    {
-    "Version": "2012-10-17",
-    "Statement": [
+  policy = {
+    Version = "2012-10-17"
+    Statement = [
         {
-            "Sid": "kopsK8sNLBMasterPermsRestrictive",
-            "Effect": "Allow",
-            "Action": [
+            Sid = "kopsK8sNLBMasterPermsRestrictive"
+            Effect = "Allow"
+            Action = [
                 "ec2:DescribeVpcs",
                 "elasticloadbalancing:AddTags",
                 "elasticloadbalancing:CreateListener",
@@ -35,20 +34,17 @@ resource "aws_iam_policy" "eks_nlb_create_policy" {
                 "elasticloadbalancing:ModifyTargetGroup",
                 "elasticloadbalancing:RegisterTargets",
                 "elasticloadbalancing:SetLoadBalancerPoliciesOfListener"
-            ],
-            "Resource": [
-                "*"
             ]
+            Resource = ["*"]
         },
         {
-            "Effect": "Allow",
-            "Action": [
+            Effect = "Allow"
+            Action = [
                 "ec2:DescribeVpcs",
                 "ec2:DescribeRegions"
-            ],
-            "Resource": "*"
+            ]
+            Resource = "*"
         }
     ]
-    }
-  )
+  }
 }
