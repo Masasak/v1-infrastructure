@@ -28,4 +28,9 @@ module "eks" {
       groups   = ["system:admin"]
     }
   ]
+
+  iam_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+    aws_iam_policy.eks_nlb_create_policy.arn
+  ]
 }

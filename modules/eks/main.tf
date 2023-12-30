@@ -33,7 +33,7 @@ module "eks" {
       desired_size = var.nodegroup_desired_size
 
       iam_role_additional_policies = {
-        policy1 = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+        for idx, policy_arn in var.iam_policy_arns : "policy${idx+1}" => policy_arn
       }
     }
   }

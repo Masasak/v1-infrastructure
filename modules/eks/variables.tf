@@ -18,6 +18,10 @@ variable "nodegroup_max_size" {
 variable "nodegroup_desired_size" {
 }
 
+variable "iam_policy_arns" {
+  type = list(string)
+}
+
 variable "auth_users" {
   type = list(object({
     userarn  = string
