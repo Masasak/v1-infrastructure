@@ -35,6 +35,10 @@ module "eks" {
       iam_role_additional_policies = {
         for idx, policy_arn in var.iam_policy_arns : "policy${idx+1}" => policy_arn
       }
+
+      labels = {
+        istio = "enabled"
+      }
     }
   }
 

@@ -18,7 +18,7 @@ locals {
   aws-load-balancer-controller-namespace = "kube-system"
 
   snapvibe-application-name      = "snapvibe-application"
-  snapvibe-application-version   = "0.1.18"
+  snapvibe-application-version   = "0.1.19"
   snapvibe-application-namespace = "argocd"
 
   ingress-name      = "ingress"
@@ -26,7 +26,7 @@ locals {
   ingress-namespace = "argocd"
 
   istio-name      = "istio"
-  istio-version   = "0.1.8"
+  istio-version   = "0.1.9"
   istio-namespace = "istio-system"
 }
 
