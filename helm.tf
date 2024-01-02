@@ -26,7 +26,7 @@ locals {
   ingress-namespace = "argocd"
 
   istio-name      = "istio"
-  istio-version   = "0.1.21"
+  istio-version   = "0.1.22"
   istio-namespace = "istio-system"
 }
 
