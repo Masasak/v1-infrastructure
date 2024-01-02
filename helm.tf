@@ -26,7 +26,7 @@ locals {
   ingress-namespace = "argocd"
 
   istio-name      = "istio"
-  istio-version   = "0.1.23"
+  istio-version   = "0.1.24"
   istio-namespace = "istio-system"
 }
 
@@ -66,11 +66,11 @@ module "snapvibe-application" {
 #   chart_version = local.ingress-version
 # }
 
-# module "istio" {
-#   source        = "./modules/helm"
-#   name          = local.istio-name
-#   namespace     = local.istio-namespace
-#   repository    = local.snapvibe-helm-repository
-#   chart         = local.istio-name
-#   chart_version = local.istio-version
-# }
+module "istio" {
+  source        = "./modules/helm"
+  name          = local.istio-name
+  namespace     = local.istio-namespace
+  repository    = local.snapvibe-helm-repository
+  chart         = local.istio-name
+  chart_version = local.istio-version
+}
