@@ -66,11 +66,11 @@ module "snapvibe-application" {
 #   chart_version = local.ingress-version
 # }
 
-module "istio" {
-  source        = "./modules/helm"
-  name          = local.istio-name
-  namespace     = local.istio-namespace
-  repository    = local.snapvibe-helm-repository
-  chart         = local.istio-name
-  chart_version = local.istio-version
-}
+# module "istio" {
+#   source        = "./modules/helm"
+#   name          = local.istio-name
+#   namespace     = local.istio-namespace
+#   repository    = local.snapvibe-helm-repository
+#   chart         = local.istio-name
+#   chart_version = local.istio-version
+# }
