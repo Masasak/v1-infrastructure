@@ -17,8 +17,8 @@ module "eks" {
   vpc_id                 = module.vpc.vpc_id
   public_subnets         = module.vpc.public_subnet_ids
   nodegroup_min_size     = 1
-  nodegroup_max_size     = 3
-  nodegroup_desired_size = 2
+  nodegroup_max_size     = 5
+  nodegroup_desired_size = 3
 
 
   auth_users = [
