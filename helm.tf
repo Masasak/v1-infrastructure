@@ -48,14 +48,14 @@ module "aws-load-balancer-controller" {
   chart_version = local.aws-load-balancer-controller-version
 }
 
-module "snapvibe-application" {
-  source        = "./modules/helm"
-  name          = local.snapvibe-application-name
-  namespace     = local.snapvibe-application-namespace
-  repository    = local.snapvibe-helm-repository
-  chart         = local.snapvibe-application-name
-  chart_version = local.snapvibe-application-version
-}
+# module "snapvibe-application" {
+#   source        = "./modules/helm"
+#   name          = local.snapvibe-application-name
+#   namespace     = local.snapvibe-application-namespace
+#   repository    = local.snapvibe-helm-repository
+#   chart         = local.snapvibe-application-name
+#   chart_version = local.snapvibe-application-version
+# }
 
 # module "ingress" {
 #   source        = "./modules/helm"
@@ -66,11 +66,11 @@ module "snapvibe-application" {
 #   chart_version = local.ingress-version
 # }
 
-module "istio" {
-  source        = "./modules/helm"
-  name          = local.istio-name
-  namespace     = local.istio-namespace
-  repository    = local.snapvibe-helm-repository
-  chart         = local.istio-name
-  chart_version = local.istio-version
-}
+# module "istio" {
+#   source        = "./modules/helm"
+#   name          = local.istio-name
+#   namespace     = local.istio-namespace
+#   repository    = local.snapvibe-helm-repository
+#   chart         = local.istio-name
+#   chart_version = local.istio-version
+# }
