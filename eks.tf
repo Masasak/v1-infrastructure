@@ -1,6 +1,6 @@
 locals {
   cluster_version = "1.28"
-  node_type       = "t3.small"
+  node_type       = "t3.medium"
   capacity_type   = "ON_DEMAND"
 }
 
@@ -17,8 +17,8 @@ module "eks" {
   vpc_id                 = module.vpc.vpc_id
   public_subnets         = module.vpc.public_subnet_ids
   nodegroup_min_size     = 1
-  nodegroup_max_size     = 5
-  nodegroup_desired_size = 3
+  nodegroup_max_size     = 3
+  nodegroup_desired_size = 2
 
 
   auth_users = [
